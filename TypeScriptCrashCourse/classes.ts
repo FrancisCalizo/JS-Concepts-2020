@@ -6,7 +6,7 @@ interface UserInterface {
   payInvoice();
 }
 
-class User {
+class User implements UserInterface {
   name: string;
   email: string;
   age: number;
