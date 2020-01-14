@@ -12,9 +12,7 @@ const Form = () => {
   const [title, setTitle] = useState(null);
 
   const handleChange = e => {
-    setTitle({
-      title: e.target.value
-    });
+    setTitle(e.target.value);
   };
 
   const handleSubmit = e => {
