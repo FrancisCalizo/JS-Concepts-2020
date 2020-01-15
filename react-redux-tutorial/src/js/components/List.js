@@ -10,7 +10,7 @@ const mapStateToProps = state => {
 const List = ({ articles }) => (
   <ul>
     {articles.map(el => (
-      <li key={el.id}>{el.title}</li>
+      <li key={el.title}>{el.title}</li>
     ))}
   </ul>
 );

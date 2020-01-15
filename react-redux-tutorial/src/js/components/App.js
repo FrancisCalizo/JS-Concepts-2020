@@ -4,7 +4,7 @@ import Form from "./Form";
 
 const App = () => {
   return (
-    <div>
+    <div style={gridContainer}>
       <div>
         <h2>Articles</h2>
         <List />
@@ -15,6 +15,12 @@ const App = () => {
       </div>
     </div>
   );
+};
+
+const gridContainer = {
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "space-around"
 };
 
 export default App;

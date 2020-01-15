@@ -8,8 +8,8 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-const Form = () => {
-  const [title, setTitle] = useState(null);
+const Form = ({ addArticle }) => {
+  const [title, setTitle] = useState("");
 
   const handleChange = e => {
     setTitle(e.target.value);
@@ -18,7 +18,7 @@ const Form = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    addArticle(title);
+    addArticle({ title: title });
     setTitle("");
   };
 
