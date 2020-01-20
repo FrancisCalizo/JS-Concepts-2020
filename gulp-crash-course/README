@@ -1,0 +1,5 @@
+Crash Course - https://www.youtube.com/watch?v=1rw9MfIleEg
+
+Watching files requires a "series function" now - http://stackoverflow.com/questions/39665773/gulp-error-watch-task-has-to-be-a-function
+
+Using async function to avoid error in gulp.task - https://stackoverflow.com/questions/36897877/gulp-error-the-following-tasks-did-not-complete-did-you-forget-to-signal-async
