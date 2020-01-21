@@ -3,3 +3,7 @@ Video - https://www.youtube.com/watch?v=3On5Z0gjf4U&list=PLblA84xge2_zwxh3XJqy6U
 Loaders - https://webpack.js.org/loaders/ - key to get webpack to handle files besides JavaScript. They dictate how certain files should be pre-processed
 CSS Loader takes your CSS and turns it into JS
 Style Loader takes the JS and injects it into the CSS
+
+Plugins - https://webpack.js.org/configuration/plugins/ - used to customize the weback build process in a variety of ways
+
+HtmlWebpackPlugin - https://webpack.js.org/plugins/html-webpack-plugin/ - simplifies the creation of HTML files to serve your webpack bundles (especially useful for webpack bundles that include a hash in the filesname which changes every compilation)
