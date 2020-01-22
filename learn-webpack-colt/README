@@ -7,3 +7,7 @@ Style Loader takes the JS and injects it into the CSS
 Plugins - https://webpack.js.org/configuration/plugins/ - used to customize the weback build process in a variety of ways
 
 HtmlWebpackPlugin - https://webpack.js.org/plugins/html-webpack-plugin/ - simplifies the creation of HTML files to serve your webpack bundles (especially useful for webpack bundles that include a hash in the filesname which changes every compilation)
+
+HTML-loader and File-loader
+
+https://stackoverflow.com/questions/59070216/webpack-file-loader-outputs-object-module - had to turn esModule Off as an option during this step
