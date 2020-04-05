@@ -23,8 +23,7 @@ a {
 }
 
 .showcase {
-  background-color: $primary-color;
-  color: #fff;
+  @include set-background($primary-color);
   height: 600px;
 
   nav {
@@ -41,13 +40,13 @@ a {
       padding: 15px;
     }
 
+    a {
+      color: set-text-color($primary-color);
+    }
+
     a:hover {
       color: $secondary-color;
     }
-  }
-
-  a {
-    color: #fff;
   }
 
   // Can use ampersand to replace the parent name
@@ -56,6 +55,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 30px;
 
     img {
       width: 50%;
@@ -65,9 +65,7 @@ a {
       font-size: 50px;
       line-height: 1.2;
     }
-
-    p {
-      margin: 20px 0;
-    }
   }
 }
+
+@import 'mobile';

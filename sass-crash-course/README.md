@@ -23,3 +23,9 @@ To compile SASS into CSS, you can use the live sass compiler in vscode or you ca
 - Percentage Symbol in CSCC - https://stackoverflow.com/questions/55195655/in-scss-what-does-symbol-indicate
 
 - lighten and darken functions
+
+Functions vs Mixins - https://dev.to/keinchy/sass--function-mixin-placeholder-extend-18g6
+
+- Example of functions around the 39:00 is a way to use light and dark modes
+
+-Loops - 39:30
