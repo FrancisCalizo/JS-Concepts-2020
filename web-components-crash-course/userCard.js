@@ -34,7 +34,7 @@ template.innerHTML = `
         <p><slot name="email" /></p>
         <p><slot name="phone" /></p>
       </div>
-      <button class="togglle-info">Hide Info</button>
+      <button id="toggle-info">Hide Info</button>
     </div>
   </div>
 `;
@@ -44,11 +44,40 @@ class UserCard extends HTMLElement {
   constructor() {
     super();
 
+    this.showInfo = true;
+
     // Create Shadow DOM
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(template.content.cloneNode(true));
     this.shadowRoot.querySelector('h3').innerText = this.getAttribute('name');
     this.shadowRoot.querySelector('img').src = this.getAttribute('avatar');
+  }
+
+  toggleInfo() {
+    this.showInfo = !this.showInfo;
+
+    const info = this.shadowRoot.querySelector('.info');
+    const toggleButton = this.shadowRoot.querySelector('#toggle-info');
+
+    if (this.showInfo) {
+      info.style.display = 'block';
+      toggleButton.innerText = 'Hide Info';
+    } else {
+      info.style.display = 'none';
+      toggleButton.innerText = 'Show Info';
+    }
+  }
+
+  // Lifecycle Method when Component Mounts
+  connectedCallback() {
+    this.shadowRoot
+      .querySelector('#toggle-info')
+      .addEventListener('click', () => this.toggleInfo());
+  }
+
+  // Lifecycle Method when Component Unmounts
+  disconnectedCallback() {
+    this.shadowRoot.querySelector('#toggle-info').removeEventListener();
   }
 }
 
