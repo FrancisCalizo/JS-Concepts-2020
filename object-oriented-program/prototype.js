@@ -3,6 +3,7 @@
 // To provide inheritance, objects can have a prototype object, which acts as a template object
 // that it inherits methods and properties from
 
+// Contructor
 function Character(name, gender, type) {
   this.name = name;
   this.gender = gender;

@@ -3,6 +3,7 @@
 // It is useful when you want to create multiple similar objects with the same properties and methods.
 // It can be viewed as a normal function which initializes a value or sets the default values.
 
+// Constructor
 function Character(name, gender, type) {
   this.name = name;
   this.gender = gender;
