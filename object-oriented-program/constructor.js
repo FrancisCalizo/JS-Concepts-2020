@@ -3,13 +3,13 @@
 // It is useful when you want to create multiple similar objects with the same properties and methods.
 // It can be viewed as a normal function which initializes a value or sets the default values.
 
-// Constructor
+// Constructor Function
 function Character(name, gender, type) {
   this.name = name;
   this.gender = gender;
   this.type = type;
 
-  this.getSummary = () => {
+  this.getSummary = function () {
     return `${this.name} is a ${this.gender} ${this.type}.`;
   };
 }
