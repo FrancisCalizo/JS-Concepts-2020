@@ -1,13 +1,23 @@
 import React, { SyntheticEvent } from 'react';
+import styled from 'styled-components';
 
 interface TodoItemProps {
   todo: Todo;
   toggleTodo: ToggleTodo<SyntheticEvent>;
 }
 
+interface StyledListItem {
+  completed: boolean;
+}
+
+const ListItem = styled.li<StyledListItem>`
+  list-style-type: none;
+  text-decoration: ${(props) => (props.completed ? 'line-through' : 'none')};
+`;
+
 const TodoItem: React.FC<TodoItemProps> = ({ todo, toggleTodo }) => {
   return (
-    <li>
+    <ListItem completed={todo.completed}>
       <label htmlFor={todo.name}>
         <input
           type="checkbox"
@@ -17,7 +27,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, toggleTodo }) => {
         />
         {todo.name}
       </label>
-    </li>
+    </ListItem>
   );
 };
 

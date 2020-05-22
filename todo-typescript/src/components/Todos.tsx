@@ -5,7 +5,7 @@ import { initialTodos } from '../data';
 const Todos = () => {
   const [todos, setTodos] = useState(initialTodos);
 
-  const toggleTodo = (e: SyntheticEvent) => {
+  const toggleTodo: ToggleTodo<SyntheticEvent> = (e) => {
     const newTodos = todos.map((todo) => {
       if (todo.name === (e.target as HTMLInputElement).id) {
         return {
