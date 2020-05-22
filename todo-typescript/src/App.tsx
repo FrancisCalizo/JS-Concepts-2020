@@ -21,11 +21,18 @@ const App: React.FC = () => {
     setTodos(newTodos);
   };
 
+  const addTodo = (newTodo: string) => {
+    setTodos([
+      ...todos,
+      { id: Math.floor(Math.random() * 100), name: newTodo, completed: false },
+    ]);
+  };
+
   return (
     <div>
       <h1>TypeScript Todo List</h1>
       <Todos todos={todos} toggleTodo={toggleTodo} />
-      <AddTodo />
+      <AddTodo addTodo={addTodo} />
     </div>
   );
 };
