@@ -1,0 +1,13 @@
+Video - https://www.youtube.com/watch?v=deyxI-6C2u4
+
+Webpack Dev Server - Provides Web Server with hot reload
+Webpack CLI - Allows you to run webpack commands (used for our build script)
+
+Babel - Transpiles code to browser friendly code from ESNext
+Babel preset ENV - Compiles ES6 and beyond down to ES whatever the browser uses
+Babel Loader - Compiles JSX
+HTML Webpack Plugin - Generates our BuildHTML File
+
+Had to install:
+@babel/core @babel/present-env @babel/preset-react
+and make modifications to .babelrc file
