@@ -1,23 +1,12 @@
-import React, { Fragment, SyntheticEvent, useState } from 'react';
+import React, { Fragment, SyntheticEvent } from 'react';
 import TodoItem from './TodoItem';
-import { initialTodos } from '../data';
 
-const Todos = () => {
-  const [todos, setTodos] = useState(initialTodos);
+interface TodosInterface {
+  todos: Todo[];
+  toggleTodo: ToggleTodo<SyntheticEvent>;
+}
 
-  const toggleTodo: ToggleTodo<SyntheticEvent> = (e) => {
-    const newTodos = todos.map((todo) => {
-      if (todo.name === (e.target as HTMLInputElement).id) {
-        return {
-          ...todo,
-          completed: !todo.completed,
-        };
-      }
-      return todo;
-    });
-    setTodos(newTodos);
-  };
-
+const Todos: React.FC<TodosInterface> = ({ todos, toggleTodo }) => {
   return (
     <Fragment>
       {todos.map((todo) => (
