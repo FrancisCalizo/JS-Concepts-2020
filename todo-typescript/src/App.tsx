@@ -5,6 +5,7 @@ import './App.css';
 const App: React.FC = () => {
   return (
     <div>
+      <h1>TypeScript Todo List</h1>
       <Todos />
     </div>
   );

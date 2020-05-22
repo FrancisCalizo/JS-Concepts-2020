@@ -1,27 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React, { Fragment, SyntheticEvent, useState } from 'react';
 import TodoItem from './TodoItem';
 import { initialTodos } from '../data';
 
-const Todos: React.FC = () => {
+const Todos = () => {
   const [todos, setTodos] = useState(initialTodos);
-  const [clicked, setClicked] = useState('');
 
-  useEffect(() => {
-    setTodos([{ id: 5, name: 'Write a todo', completed: false }]);
-  }, [clicked]);
+  const onChange = (e: SyntheticEvent) => {
+    const newTodos = todos.map((todo) => {
+      if (todo.name === (e.target as HTMLInputElement).id) {
+        return {
+          ...todo,
+          completed: !todo.completed,
+        };
+      }
+      return todo;
+    });
+    setTodos(newTodos);
+  };
 
   return (
-    <div>
+    <Fragment>
       {todos.map((todo) => (
-        <TodoItem
-          key={todo.id}
-          todo={todo}
-          setTodos={setTodos}
-          clicked={clicked}
-          setClicked={setClicked}
-        />
+        <TodoItem key={todo.id} todo={todo} onChange={onChange} />
       ))}
-    </div>
+    </Fragment>
   );
 };
 

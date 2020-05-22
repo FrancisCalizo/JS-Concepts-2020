@@ -1,37 +1,23 @@
-import React, { Fragment } from 'react';
+import React, { SyntheticEvent } from 'react';
 
-interface TodoProps {
+interface TodoItemProps {
   todo: Todo;
-  setTodos: (todo: Todo[]) => void;
-  clicked: string;
-  setClicked: (clicked: string) => void;
+  onChange: (event: SyntheticEvent) => void;
 }
 
-const TodoItem: React.FC<TodoProps> = ({
-  todo: { id, name, completed },
-  setTodos,
-  clicked,
-  setClicked,
-}) => {
-  const handleChange = (e: any) => {
-    // setTodos([{id: 5, name:'Write a todo', completed: false}])
-    setClicked(e.target.id);
-  };
-
+const TodoItem: React.FC<TodoItemProps> = ({ todo, onChange }) => {
   return (
-    <Fragment>
-      <li>
-        <label htmlFor={name}>
-          {name}
-          <input
-            type="checkbox"
-            id={name}
-            checked={completed}
-            onChange={handleChange}
-          />
-        </label>
-      </li>
-    </Fragment>
+    <li>
+      <label htmlFor={todo.name}>
+        <input
+          type="checkbox"
+          id={todo.name}
+          checked={todo.completed}
+          onChange={onChange}
+        />
+        {todo.name}
+      </label>
+    </li>
   );
 };
 
