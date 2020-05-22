@@ -4,3 +4,5 @@ type Todo = {
   name: string;
   completed: boolean;
 };
+
+type ToggleTodo<T> = (event: T) => void;

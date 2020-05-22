@@ -2,10 +2,10 @@ import React, { SyntheticEvent } from 'react';
 
 interface TodoItemProps {
   todo: Todo;
-  onChange: (event: SyntheticEvent) => void;
+  toggleTodo: ToggleTodo<SyntheticEvent>;
 }
 
-const TodoItem: React.FC<TodoItemProps> = ({ todo, onChange }) => {
+const TodoItem: React.FC<TodoItemProps> = ({ todo, toggleTodo }) => {
   return (
     <li>
       <label htmlFor={todo.name}>
@@ -13,7 +13,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, onChange }) => {
           type="checkbox"
           id={todo.name}
           checked={todo.completed}
-          onChange={onChange}
+          onChange={toggleTodo}
         />
         {todo.name}
       </label>
