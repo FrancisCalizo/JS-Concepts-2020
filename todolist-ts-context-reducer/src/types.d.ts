@@ -7,3 +7,5 @@ type Todo = {
 type ToggleTodo = (e: SyntheticEvent) => void;
 
 type AddTodo = (e: FormEvent) => void;
+
+type ActionType = 'ADD_TODO';
