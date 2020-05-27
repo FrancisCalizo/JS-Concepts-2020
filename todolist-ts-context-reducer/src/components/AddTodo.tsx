@@ -4,7 +4,7 @@ import TodoContext from '../context/todoContext';
 
 const AddTodo: React.FC = () => {
   const todoContext = useContext(TodoContext);
-  const { todos, addTodo } = todoContext;
+  const { addTodo } = todoContext;
 
   const [inputText, setInputText] = useState('');
 
@@ -14,8 +14,11 @@ const AddTodo: React.FC = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    console.log(todos);
-    addTodo(inputText);
+
+    if (inputText !== '') {
+      addTodo(inputText);
+      setInputText('');
+    }
   };
 
   return (

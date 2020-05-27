@@ -21,8 +21,25 @@ const TodoState: React.FC = (props) => {
     });
   };
 
+  const toggleTodo: ToggleTodo = (id) => {
+    const newTodos = state.todos.map((todo) => {
+      if (todo.title === id) {
+        return {
+          ...todo,
+          completed: !todo.completed,
+        };
+      }
+      return todo;
+    });
+
+    dispatch({
+      type: 'TOGGLE_TODO',
+      payload: newTodos,
+    });
+  };
+
   return (
-    <TodoContext.Provider value={{ todos: state.todos, addTodo }}>
+    <TodoContext.Provider value={{ todos: state.todos, addTodo, toggleTodo }}>
       {props.children}
     </TodoContext.Provider>
   );

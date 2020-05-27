@@ -4,16 +4,22 @@ type Todo = {
   completed: boolean;
 };
 
-type ToggleTodo = (e: SyntheticEvent) => void;
+type HandleChange = (e: SyntheticEvent) => void;
 
 type AddTodo = (inputText: string) => void;
 
-type ActionType = 'ADD_TODO' | 'TOGGLE_TODO';
+type ToggleTodo = (id: string) => void;
 
-type PayloadType = Todo[] | string;
+interface IContextState {
+  todos: Todo[];
+  addTodo: AddTodo;
+  toggleTodo: ToggleTodo;
+}
 
 interface IState {
   todos: Todo[];
 }
 
-type Action = { type: 'ADD_TODO'; payload: string };
+type Action =
+  | { type: 'ADD_TODO'; payload: string }
+  | { type: 'TOGGLE_TODO'; payload: Todo[] };

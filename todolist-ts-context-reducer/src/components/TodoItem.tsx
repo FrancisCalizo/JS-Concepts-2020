@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
+import TodoContext from '../context/todoContext';
 
 interface Props {
   todo: Todo;
-  toggleTodo: ToggleTodo;
 }
 
-const TodoItem: React.FC<Props> = ({ todo, toggleTodo }) => {
+const TodoItem: React.FC<Props> = ({ todo }) => {
+  const todoContext = useContext(TodoContext);
+  const { toggleTodo } = todoContext;
+
+  const handleChange: HandleChange = (e) => {
+    toggleTodo(e.currentTarget.id);
+  };
+
   return (
     <li style={liStyles}>
       <label htmlFor={todo.title}>
@@ -13,7 +21,7 @@ const TodoItem: React.FC<Props> = ({ todo, toggleTodo }) => {
           type="checkbox"
           id={todo.title}
           checked={todo.completed}
-          onChange={toggleTodo}
+          onChange={handleChange}
         />
         {todo.title}
       </label>

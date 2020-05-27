@@ -13,6 +13,8 @@ const TodoReducer: React.Reducer<IState, Action> = (state, action) => {
           },
         ],
       };
+    case 'TOGGLE_TODO':
+      return { todos: action.payload };
     default:
       return state;
   }

@@ -1,10 +1,5 @@
 import React from 'react';
 
-interface ContextState {
-  todos: Todo[];
-  addTodo: AddTodo;
-}
-
-const todoContext = React.createContext({} as ContextState);
+const todoContext = React.createContext({} as IContextState);
 
 export default todoContext;
