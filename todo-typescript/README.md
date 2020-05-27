@@ -1,6 +1,4 @@
-### Passing useState hook as a prop with interface|types
-
-- https://stackoverflow.com/questions/54575523/issue-with-passing-hook-to-child-typescript
+Passing useState hook as a prop with interface|types - https://stackoverflow.com/questions/54575523/issue-with-passing-hook-to-child-typescript
 
 - SyntheticEvent Type for event targets - https://stackoverflow.com/questions/42081549/typescript-react-event-types
 
