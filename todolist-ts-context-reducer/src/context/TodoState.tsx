@@ -4,29 +4,25 @@ import TodoContext from './todoContext';
 import { initialTodos } from '../data/todos';
 import TodoReducer from './todoReducer';
 
-interface IState {
-  todos: Todo[];
-}
-
-interface IAction {
-  type: ActionType;
-  payload: {
-    todos: Todo[];
-  };
-}
-
 const TodoState: React.FC = (props) => {
   const initialState = {
     todos: initialTodos,
   };
 
-  const [state, dispatch] = useReducer<Reducer<IState, IAction>>(
+  const [state, dispatch] = useReducer<Reducer<IState, Action>>(
     TodoReducer,
     initialState
   );
 
+  const addTodo: AddTodo = (inputText) => {
+    dispatch({
+      type: 'ADD_TODO',
+      payload: inputText,
+    });
+  };
+
   return (
-    <TodoContext.Provider value={{ todos: state.todos }}>
+    <TodoContext.Provider value={{ todos: state.todos, addTodo }}>
       {props.children}
     </TodoContext.Provider>
   );

@@ -1,20 +1,25 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useState, useContext, FormEvent } from 'react';
 
-interface Props {
-  // addTodo: AddTodo;
-}
+import TodoContext from '../context/todoContext';
 
-// const AddTodo: React.FC<Props> = ({ addTodo}) => {
-const AddTodo: React.FC<Props> = () => {
+const AddTodo: React.FC = () => {
+  const todoContext = useContext(TodoContext);
+  const { todos, addTodo } = todoContext;
+
   const [inputText, setInputText] = useState('');
 
   const handleTyping = (e: ChangeEvent<HTMLInputElement>) => {
     setInputText(e.target.value);
   };
 
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    console.log(todos);
+    addTodo(inputText);
+  };
+
   return (
-    // <form onSubmit={addTodo}>
-    <form>
+    <form onSubmit={handleSubmit}>
       <input type="text" value={inputText} onChange={handleTyping} />
       <button type="submit">Add</button>
     </form>

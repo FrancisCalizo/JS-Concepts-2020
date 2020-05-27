@@ -1,8 +1,10 @@
 import React from 'react';
-import { initialTodos } from '../data/todos';
 
-const todoContext = React.createContext({
-  todos: initialTodos,
-});
+interface ContextState {
+  todos: Todo[];
+  addTodo: AddTodo;
+}
+
+const todoContext = React.createContext({} as ContextState);
 
 export default todoContext;
