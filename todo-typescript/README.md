@@ -5,3 +5,5 @@ Passing useState hook as a prop with interface|types - https://stackoverflow.com
 - Getting a property on a Synthetic event with type casting - https://stackoverflow.com/questions/42066421/property-value-does-not-exist-on-type-eventtarget
 
 - Add Styled components with props - https://stackoverflow.com/questions/52404958/using-styled-components-with-typescript-prop-does-not-exist
+
+- Using Fetch with Local JSON files in 'public' directory - https://stackoverflow.com/questions/37269808/react-js-uncaught-in-promise-syntaxerror-unexpected-token-in-json-at-posit

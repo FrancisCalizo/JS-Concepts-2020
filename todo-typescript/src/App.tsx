@@ -1,4 +1,4 @@
-import React, { useState, SyntheticEvent } from 'react';
+import React, { useState, SyntheticEvent, useEffect } from 'react';
 import Todos from './components/Todos';
 import AddTodo from './components/AddTodo';
 import './App.css';
@@ -7,6 +7,14 @@ import { initialTodos } from './data';
 
 const App: React.FC = () => {
   const [todos, setTodos] = useState(initialTodos);
+
+  // This has nothing to do with program.
+  // I was practicing using fetch with local JSON Files
+  useEffect(() => {
+    fetch('./data.json')
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  }, []);
 
   const toggleTodo: ToggleTodo<SyntheticEvent> = (e) => {
     const newTodos = todos.map((todo) => {
