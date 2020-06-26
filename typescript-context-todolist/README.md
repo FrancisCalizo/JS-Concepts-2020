@@ -3,3 +3,5 @@
 - useState Initial State can be an empty array if you place the type in the useState Generic - https://stackoverflow.com/a/56919130/13815036
 
 Input Value for State - https://stackoverflow.com/a/42645711/13815036
+
+Complex Context with React Context and TypeScript - https://www.carlrippon.com/react-context-with-typescript-p2/

@@ -1,16 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import TodoItem from './TodoItem';
 
-interface Props {
-  todos: Todo[];
-  toggleTodo: ToggleTodo;
-}
+import TodoContext from '../context/todoContext';
 
-const Todos: React.FC<Props> = ({ todos, toggleTodo }) => {
+const Todos: React.FC = () => {
+  const todoContext = useContext(TodoContext);
+
   return (
     <div>
-      {todos.map((todo, idx) => (
-        <TodoItem key={idx} todo={todo} toggleTodo={toggleTodo} />
+      {todoContext!.todos.map((todo, idx) => (
+        <TodoItem key={idx} todo={todo} toggleTodo={todoContext!.toggleTodo} />
       ))}
     </div>
   );

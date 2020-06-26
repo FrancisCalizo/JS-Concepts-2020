@@ -1,10 +1,10 @@
 import React, { useState, ChangeEvent, FormEvent, useContext } from 'react';
 
-interface Props {
-  addTodo: AddTodo;
-}
+import TodoContext from '../context/todoContext';
 
-const AddTodo: React.FC<Props> = ({ addTodo }) => {
+const AddTodo: React.FC = () => {
+  const todoContext = useContext(TodoContext);
+
   const [input, setInput] = useState('');
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -15,7 +15,7 @@ const AddTodo: React.FC<Props> = ({ addTodo }) => {
     e.preventDefault();
 
     if (input) {
-      addTodo(input);
+      todoContext?.addTodo(input);
       setInput('');
     }
   };
