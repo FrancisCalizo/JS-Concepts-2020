@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+
+import TodoState from './context/TodoState';
 import Todos from './components/Todos';
 import AddTodo from './components/AddTodo';
 
@@ -33,10 +35,12 @@ function App() {
   };
 
   return (
-    <div>
-      <Todos todos={todos} toggleTodo={toggleTodo} />
-      <AddTodo addTodo={addTodo} />
-    </div>
+    <TodoState>
+      <div>
+        <Todos todos={todos} toggleTodo={toggleTodo} />
+        <AddTodo addTodo={addTodo} />
+      </div>
+    </TodoState>
   );
 }
 
