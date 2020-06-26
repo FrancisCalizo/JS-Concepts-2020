@@ -6,6 +6,6 @@ interface Props {
   addTodo: AddTodo;
 }
 
-const todoContext = React.createContext<Props | undefined>(undefined);
+const todoContext = React.createContext<Props>(undefined!);
 
 export default todoContext;

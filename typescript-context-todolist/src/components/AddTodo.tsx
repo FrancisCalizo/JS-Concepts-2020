@@ -4,6 +4,7 @@ import TodoContext from '../context/todoContext';
 
 const AddTodo: React.FC = () => {
   const todoContext = useContext(TodoContext);
+  const { addTodo } = todoContext;
 
   const [input, setInput] = useState('');
 
@@ -15,7 +16,7 @@ const AddTodo: React.FC = () => {
     e.preventDefault();
 
     if (input) {
-      todoContext?.addTodo(input);
+      addTodo(input);
       setInput('');
     }
   };
