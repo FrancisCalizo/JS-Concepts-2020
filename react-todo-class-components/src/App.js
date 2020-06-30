@@ -3,6 +3,7 @@ import './App.css';
 
 import { initialTodos } from './data';
 import Todos from './components/Todos';
+import AddTodo from './components/AddTodo';
 
 export default class App extends Component {
   constructor(props) {
@@ -25,10 +26,17 @@ export default class App extends Component {
     this.setState({ todos: newTodos });
   };
 
+  addTodo = (input) => {
+    this.setState({
+      todos: [...this.state.todos, { title: input, completed: false }],
+    });
+  };
+
   render() {
     return (
       <div>
         <Todos todos={this.state.todos} toggleTodo={this.toggleTodo} />
+        <AddTodo addTodo={this.addTodo} />
       </div>
     );
   }
