@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import { initialTodos } from './data';
 import Todos from './components/Todos';
 import AddTodo from './components/AddTodo';
 
@@ -10,9 +9,15 @@ export default class App extends Component {
     super(props);
 
     this.state = {
-      todos: initialTodos,
+      todos: [],
     };
   }
+
+  componentDidMount = async () => {
+    const data = await (await fetch('data.json')).json();
+
+    this.setState({ todos: data });
+  };
 
   toggleTodo = (id) => {
     const newTodos = this.state.todos.map((todo) => {
