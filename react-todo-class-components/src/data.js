@@ -1,0 +1,14 @@
+export const initialTodos = [
+  {
+    title: 'Clean the dishes',
+    completed: false,
+  },
+  {
+    title: 'Walk the dog',
+    completed: true,
+  },
+  {
+    title: 'Take out the trash',
+    completed: false,
+  },
+];
