@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Todos from './components/Todos';
+import AddTodo from './components/AddTodo';
 
 interface State {
   todos: Todo[];
@@ -28,10 +29,17 @@ class App extends Component<{}, State> {
     this.setState({ todos: newTodos });
   };
 
+  addTodo = (title: string) => {
+    this.setState({
+      todos: [...this.state.todos, { title, completed: false }],
+    });
+  };
+
   render() {
     return (
       <div>
         <Todos todos={this.state.todos} toggleTodo={this.toggleTodo} />
+        <AddTodo addTodo={this.addTodo} />
       </div>
     );
   }
