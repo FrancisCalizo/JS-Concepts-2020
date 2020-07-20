@@ -3,6 +3,9 @@ const app = express();
 
 const users = require('./routes/users');
 
+// User Express Body Parser
+app.use(express.json());
+
 // API Routes (Users)
 app.use('/users', users);
 
