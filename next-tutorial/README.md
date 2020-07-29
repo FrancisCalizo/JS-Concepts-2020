@@ -1,8 +1,11 @@
 # Tutorial
 
-- Tutorial - https://www.youtube.com/watch?v=7J4iL1HDshQ
+- Tutorial Part I - https://www.youtube.com/watch?v=7J4iL1HDshQ
 - Next/Router - https://nextjs.org/docs/api-reference/next/router
 - Next/Link - https://nextjs.org/docs/api-reference/next/link
+
+- Tutorial Part II - https://www.youtube.com/watch?v=Os3JZc2CtwY
+- Create your own API Routes - https://nextjs.org/learn/basics/api-routes/creating-api-routes
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
