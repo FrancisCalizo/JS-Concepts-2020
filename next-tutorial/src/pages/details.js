@@ -1,16 +1,28 @@
 import Link from 'next/link';
+// import { useState, useEffect } from 'react';
 
-export default function Details() {
-  // Fake Data for Dynamic Pages
-  const foods = [
-    { type: 'fruit', name: 'orange' },
-    { type: 'vegetable', name: 'lettuce' },
-    { type: 'junk', name: 'potato chips' },
-  ];
+export default function Details({ foods }) {
+  // Fake Data for Dynamic Pages from Part 1
+  // const foods = [
+  //   { type: 'fruit', name: 'orange' },
+  //   { type: 'vegetable', name: 'lettuce' },
+  //   { type: 'junk', name: 'potato chips' },
+  // ];
 
-  fetch('http://localhost:3000/api/foods')
-    .then((response) => response.json())
-    .then((data) => console.log(data));
+  // useEffect is not run on the server side
+  // nextjs renders the page SS, then useEffect
+  // runs in the client
+  // const [foods, setFoods] = useState([]);
+  // useEffect(() => {
+  //   async function loadData() {
+  //     let response = await fetch('http://localhost:3000/api/foods');
+  //     let data = await response.json();
+
+  //     setFoods(data);
+  //   }
+
+  //   loadData();
+  // }, []);
 
   return (
     <div>
@@ -26,4 +38,13 @@ export default function Details() {
       ))}
     </div>
   );
+}
+
+export async function getServerSideProps() {
+  // Fetch data from API via Server Side
+  let response = await fetch('http://localhost:3000/api/foods');
+  let data = await response.json();
+
+  // Pass data to the page via props
+  return { props: { foods: data } };
 }

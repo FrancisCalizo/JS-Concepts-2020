@@ -6,6 +6,8 @@
 
 - Tutorial Part II - https://www.youtube.com/watch?v=Os3JZc2CtwY
 - Create your own API Routes - https://nextjs.org/learn/basics/api-routes/creating-api-routes
+- getInitialProps (old. Better to use either getStaticProps or getServerSideProps) - https://nextjs.org/docs/api-reference/data-fetching/getInitialProps
+- getServerSideProps (fetch data for Server Sider Generation) - https://nextjs.org/docs/basic-features/data-fetching#getserversideprops-server-side-rendering
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
