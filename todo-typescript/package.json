@@ -10,17 +10,11 @@
     "@types/node": "^12.12.41",
     "@types/react": "^16.9.35",
     "@types/react-dom": "^16.9.8",
-<<<<<<< HEAD
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
-=======
     "@types/styled-components": "^5.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "styled-components": "^5.1.0",
->>>>>>> 6337e3de5d87c7720dd03bd9bd9f0787e9f38b5a
     "typescript": "^3.7.5"
   },
   "scripts": {
