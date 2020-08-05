@@ -24,6 +24,21 @@
       "id": 5,
       "title": "Do the laundry",
       "completed": false
+    },
+    {
+      "title": "example title",
+      "completed": false,
+      "id": 6
+    },
+    {
+      "title": "here we go",
+      "completed": false,
+      "id": 7
+    },
+    {
+      "title": "it did work huh",
+      "completed": false,
+      "id": 8
     }
   ]
 }
