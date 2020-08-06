@@ -14,7 +14,21 @@ const toggleTodo = async (obj) => {
 };
 
 export default function Todos({ todo }) {
-  const [mutate] = useMutation(toggleTodo);
+  const [mutate] = useMutation(toggleTodo, {
+    // onSuccess: () => queryCache.invalidateQueries('todos'), // Causes a full refetch
+    onSuccess: (toggled) => {
+      queryCache.setQueryData(['todos'], (prevData) => {
+        const newTodos = prevData.map((e) => {
+          if (e.id === toggled.id) {
+            return { ...e, completed: !e.completed };
+          } else {
+            return e;
+          }
+        });
+        return newTodos;
+      });
+    },
+  });
 
   const onToggleTodo = async (e) => {
     let id = e.target.id;
