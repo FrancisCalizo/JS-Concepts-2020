@@ -1,14 +1,10 @@
 {
   "todos": [
     {
-      "id": 1,
-      "title": "Wash the dishes",
-      "completed": true
+      "id": 1
     },
     {
-      "id": 2,
-      "title": "Walk the dog",
-      "completed": false
+      "id": 2
     },
     {
       "id": 3,
@@ -41,13 +37,9 @@
       "id": 8
     },
     {
-      "title": "lets see",
-      "completed": false,
       "id": 9
     },
     {
-      "title": "update",
-      "completed": false,
       "id": 10
     },
     {
@@ -71,8 +63,6 @@
       "id": 14
     },
     {
-      "title": "This should update",
-      "completed": false,
       "id": 15
     },
     {
@@ -84,6 +74,21 @@
       "title": "This should clear after",
       "completed": false,
       "id": 17
+    },
+    {
+      "title": "Let see",
+      "completed": false,
+      "id": 18
+    },
+    {
+      "title": "Wow",
+      "completed": false,
+      "id": 19
+    },
+    {
+      "title": "Changed the title with a put and checked it",
+      "completed": true,
+      "id": 20
     }
   ]
 }
