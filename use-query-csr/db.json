@@ -1,94 +1,19 @@
 {
   "todos": [
     {
-      "id": 1
-    },
-    {
-      "id": 2
-    },
-    {
-      "id": 3,
-      "title": "Mow the grass",
-      "completed": true
-    },
-    {
-      "id": 4,
-      "title": "Buy groceries",
-      "completed": true
-    },
-    {
-      "id": 5,
-      "title": "Do the laundry",
+      "id": 1,
+      "title": "First Todo",
       "completed": false
     },
     {
-      "title": "example title",
-      "completed": false,
-      "id": 6
+      "id": 2,
+      "title": "Another auto update",
+      "completed": true
     },
     {
-      "title": "here we go",
-      "completed": false,
-      "id": 7
-    },
-    {
-      "title": "it did work huh",
-      "completed": false,
-      "id": 8
-    },
-    {
-      "id": 9
-    },
-    {
-      "id": 10
-    },
-    {
-      "title": "updata cache",
-      "completed": false,
-      "id": 11
-    },
-    {
-      "title": "flinger",
-      "completed": false,
-      "id": 12
-    },
-    {
-      "title": "again",
-      "completed": false,
-      "id": 13
-    },
-    {
-      "title": "I am the carduthian king of dance",
-      "completed": false,
-      "id": 14
-    },
-    {
-      "id": 15
-    },
-    {
-      "title": "wow",
-      "completed": false,
-      "id": 16
-    },
-    {
-      "title": "This should clear after",
-      "completed": false,
-      "id": 17
-    },
-    {
-      "title": "Let see",
-      "completed": false,
-      "id": 18
-    },
-    {
-      "title": "Wow",
-      "completed": false,
-      "id": 19
-    },
-    {
-      "title": "Changed the title with a put and checked it",
-      "completed": true,
-      "id": 20
+      "id": 3,
+      "title": "Third Todo",
+      "completed": true
     }
   ]
 }

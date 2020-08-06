@@ -1,21 +1,16 @@
 import React from 'react';
 import { useMutation, queryCache } from 'react-query';
 
-const toggleTodo = async ({ id, completed }) => {
-  const {
-    state: { data },
-  } = queryCache.getQuery('todos');
-
-  const updatedTodo = data.filter((todo) => todo.id === Number(id));
-
-  if (updatedTodo.length > 0) {
-    updatedTodo[0].completed = !updatedTodo[0].completed;
-  }
-
-  const res = await fetch(`http://localhost:3001/todos/${id}`, {
+const toggleTodo = async (obj) => {
+  const res = await fetch(`http://localhost:3001/todos/${obj.id}`, {
     method: 'PUT',
-    body: JSON.stringify(updatedTodo),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(obj),
   });
+
+  return res.json();
 };
 
 export default function Todos({ todo }) {
@@ -23,9 +18,10 @@ export default function Todos({ todo }) {
 
   const onToggleTodo = async (e) => {
     let id = e.target.id;
+    let title = e.target.parentElement.htmlFor;
 
     try {
-      await mutate({ id, completed: e.target.checked });
+      await mutate({ id, title, completed: e.target.checked });
     } catch (err) {
       console.log(err);
     }

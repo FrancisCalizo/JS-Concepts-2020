@@ -7,3 +7,5 @@ Destructuring Subobjects and aliasing a variable with a colon- https://stackover
 useMutation for POST/PUT/DELETE - https://react-query.tanstack.com/docs/guides/mutations AND https://react-query.tanstack.com/docs/api#usemutation
 
 Invalidate query after mutation (refetch data after a POST) - https://react-query.tanstack.com/docs/guides/invalidations-from-mutations
+
+Great video for useQuery and useMutation in depth - https://www.youtube.com/watch?v=0bKc_ch6MZY
