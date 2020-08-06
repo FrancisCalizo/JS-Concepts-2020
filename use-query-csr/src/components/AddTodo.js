@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useMutation } from 'react-query';
+import { useMutation, queryCache } from 'react-query';
 
 const addTodo = async ({ input }) => {
   let todo = {
@@ -7,7 +7,6 @@ const addTodo = async ({ input }) => {
     completed: false,
   };
 
-  console.log('wroking');
   const res = await fetch('http://localhost:3001/todos', {
     method: 'POST',
     headers: {
@@ -21,15 +20,20 @@ const addTodo = async ({ input }) => {
 
 const AddTodo = () => {
   const [input, setInput] = useState('');
-  const [mutate] = useMutation(addTodo);
+  const [mutate] = useMutation(addTodo, {
+    onSuccess: () => queryCache.invalidateQueries('todos'),
+  });
 
   const onAddTodo = async (e) => {
     e.preventDefault();
 
-    try {
-      await mutate({ input });
-    } catch (err) {
-      console.log(err);
+    if (input) {
+      try {
+        await mutate({ input });
+        setInput('');
+      } catch (err) {
+        console.log(err);
+      }
     }
   };
 
