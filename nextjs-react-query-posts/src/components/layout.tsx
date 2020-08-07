@@ -23,6 +23,12 @@ const LinkContainer = styled.div`
   }
 `;
 
+const Footer = styled.footer`
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto;
+`;
+
 const Layout: React.FC<LayoutProps> = ({
   children,
   title = 'This is the default title',
@@ -56,7 +62,7 @@ const Layout: React.FC<LayoutProps> = ({
 
       {children}
 
-      <footer>{'I`m here to stay'}</footer>
+      <Footer>{`I'ma Footer I'm a Footer`}</Footer>
     </div>
   );
 };
