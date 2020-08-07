@@ -1,19 +1,15 @@
 import styled from 'styled-components';
 
+import Layout from '../components/layout';
+
 const Title = styled.h1`
   color: red;
 `;
 
-const Subheader = styled.p`
-  font-size: 22px;
-  color: orange;
-`;
-
 export default function Index() {
   return (
-    <div>
-      <Title>Home page</Title>
-      <Subheader>This is the home page</Subheader>
-    </div>
+    <Layout title="React Query For Posts">
+      <Title>Home Page</Title>
+    </Layout>
   );
 }
