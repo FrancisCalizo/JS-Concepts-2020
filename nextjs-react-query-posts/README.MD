@@ -13,3 +13,5 @@ Dynamic Pages - https://nextjs.org/docs/routing/dynamic-routes and https://githu
 useQuery queryFn uses the keys as variables, as seen here in these two sources - https://github.com/daryanka/react-query-tutorial/blob/master/src/Queries.js and https://github.com/daryanka/react-query-tutorial/blob/master/src/containers/PostList.js . Also, explained in this API Reference - https://react-query.tanstack.com/docs/api#usequery
 
 When using dynamic routes with next/Link, use the 'as' prop when linking - https://nextjs.org/docs/api-reference/next/link#dynamic-routes
+
+onChange handler TypeScript Type - https://stackoverflow.com/a/49820103
