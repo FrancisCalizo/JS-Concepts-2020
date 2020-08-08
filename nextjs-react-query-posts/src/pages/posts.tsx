@@ -1,7 +1,6 @@
 import Layout from '../components/layout';
 import { GetServerSideProps } from 'next';
 
-import PostItem from '../components/PostItem';
 import { Post } from '../types/index';
 
 type Props = {
@@ -14,7 +13,7 @@ export default function Posts({ posts }: Props) {
       <h1>Posts</h1>
       <ul>
         {posts.map((post) => (
-          <PostItem key={post.id} post={post} />
+          <li key={post.id}>{post.title}</li>
         ))}
       </ul>
     </Layout>
