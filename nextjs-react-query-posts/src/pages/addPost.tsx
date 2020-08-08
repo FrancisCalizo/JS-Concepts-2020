@@ -1,4 +1,5 @@
-import { useState, ChangeEvent } from 'react';
+import { useState, ChangeEvent, FormEvent } from 'react';
+import { useMutation, queryCache } from 'react-query';
 import styled from 'styled-components';
 
 import Layout from '../components/layout';
@@ -15,12 +16,28 @@ const InputContainer = styled.div`
   margin: 2rem auto;
 `;
 
-const addPost = () => {
+const addPost = async (newPost: AddPost) => {
+  const res = await fetch('http://localhost:3001/posts', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      body: JSON.stringify(newPost),
+    },
+  });
+
+  const data = await res.json();
+  console.log(data);
+  return data;
+};
+
+const AddPost = () => {
   const [newPost, setNewPost] = useState<AddPost>({
     title: '',
     body: '',
     userId: undefined,
   });
+
+  const [mutate, infoObj] = useMutation(addPost);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.persist();
@@ -32,26 +49,38 @@ const addPost = () => {
     });
   };
 
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+
+    try {
+      await mutate(newPost);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
     <Layout title="Add Post">
       <h1>Add a post</h1>
-      <InputContainer onChange={handleChange}>
-        <label htmlFor="title">Title</label>
-        <input type="text" id="title" />
-      </InputContainer>
-      <InputContainer onChange={handleChange}>
-        <label htmlFor="body">Body</label>
-        <textarea id="body" />
-      </InputContainer>
-      <InputContainer onChange={handleChange}>
-        <label htmlFor="userId">User ID</label>
-        <input type="text" id="userId" />
-      </InputContainer>
-      <div>
-        <button type="submit">Add Post</button>
-      </div>
+      <form onSubmit={handleSubmit}>
+        <InputContainer onChange={handleChange}>
+          <label htmlFor="title">Title</label>
+          <input type="text" id="title" />
+        </InputContainer>
+        <InputContainer onChange={handleChange}>
+          <label htmlFor="body">Body</label>
+          <textarea id="body" />
+        </InputContainer>
+        <InputContainer onChange={handleChange}>
+          <label htmlFor="userId">User ID</label>
+          <input type="text" id="userId" />
+        </InputContainer>
+        <div>
+          <button type="submit">Add Post</button>
+        </div>
+      </form>
     </Layout>
   );
 };
 
-export default addPost;
+export default AddPost;
