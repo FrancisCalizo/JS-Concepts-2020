@@ -5,10 +5,16 @@ import styled from 'styled-components';
 import Layout from '../components/layout';
 import { Post } from '../types/index';
 import usePosts from '../hooks/usePosts';
+import AddPostButton from '../components/AddPostButton';
 
 type Props = {
   posts: Post[];
 };
+
+const Title = styled.h1`
+  display: inline-block;
+  margin-right: 1rem;
+`;
 
 const List = styled.ul`
   padding: 0;
@@ -24,7 +30,8 @@ export default function Posts(props: Props) {
 
   return (
     <Layout title="Posts">
-      <h1>Posts</h1>
+      <Title>Posts</Title>
+      <AddPostButton />
       <List>
         {posts?.map((post) => (
           <ListItem key={post.id}>

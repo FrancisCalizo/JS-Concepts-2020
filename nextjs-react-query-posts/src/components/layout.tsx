@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
 import styled from 'styled-components';
+import { ReactQueryDevtools } from 'react-query-devtools';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -63,6 +64,7 @@ const Layout: React.FC<LayoutProps> = ({
       {children}
 
       <Footer>{`I'ma Footer I'm a Footer`}</Footer>
+      <ReactQueryDevtools initialIsOpen={false} />
     </div>
   );
 };

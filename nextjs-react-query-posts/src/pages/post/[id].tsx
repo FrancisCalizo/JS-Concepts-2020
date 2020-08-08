@@ -17,7 +17,7 @@ const getPost = async (_: string, obj: { id: number }) => {
 
 const PostItem = (props: Props) => {
   const router = useRouter();
-  const { data: post } = useQuery(['todo', { id: props.post.id }], getPost, {
+  const { data: post } = useQuery(['post', { id: props.post.id }], getPost, {
     initialData: props.post,
   });
 
