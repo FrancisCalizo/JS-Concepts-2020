@@ -1,21 +1,39 @@
-import Layout from '../components/layout';
 import { GetServerSideProps } from 'next';
+import Link from 'next/link';
+import styled from 'styled-components';
 
+import Layout from '../components/layout';
 import { Post } from '../types/index';
+import usePosts from '../hooks/usePosts';
 
 type Props = {
   posts: Post[];
 };
 
-export default function Posts({ posts }: Props) {
+const List = styled.ul`
+  padding: 0;
+`;
+
+const ListItem = styled.li`
+  list-style-type: none;
+  margin: 1rem auto;
+`;
+
+export default function Posts(props: Props) {
+  const { data: posts } = usePosts(props.posts);
+
   return (
     <Layout title="Posts">
       <h1>Posts</h1>
-      <ul>
-        {posts.map((post) => (
-          <li key={post.id}>{post.title}</li>
+      <List>
+        {posts?.map((post) => (
+          <ListItem key={post.id}>
+            <Link href="/post/[id]" as={`/post/${post.id}`}>
+              <a>{post.title}</a>
+            </Link>
+          </ListItem>
         ))}
-      </ul>
+      </List>
     </Layout>
   );
 }
