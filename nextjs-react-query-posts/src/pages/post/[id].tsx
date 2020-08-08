@@ -9,10 +9,9 @@ interface Props {
   post: Post;
 }
 
-const getPost = async () => {
-  const res = await fetch(`http://localhost:3001/posts/${context.query.id}`);
+const getPost = async (_: string, obj: { id: number }) => {
+  const res = await fetch(`http://localhost:3001/posts/${obj.id}`);
   const data = await res.json();
-
   return data;
 };
 

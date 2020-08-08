@@ -9,3 +9,7 @@ Refactor useQuery for 'posts' into its own custom hook - https://codesandbox.io/
 Context Object and useRouter in Nextjs - https://nextjs.org/docs/api-reference/data-fetching/getInitialProps#context-object and https://nextjs.org/docs/api-reference/next/router
 
 Dynamic Pages - https://nextjs.org/docs/routing/dynamic-routes and https://github.com/FrancisCalizo/JS-Concepts-2020/blob/master/next-tutorial/src/pages/%5Bfoods%5D/%5BfoodType%5D.js
+
+useQuery queryFn uses the keys as variables, as seen here in these two sources - https://github.com/daryanka/react-query-tutorial/blob/master/src/Queries.js and https://github.com/daryanka/react-query-tutorial/blob/master/src/containers/PostList.js . Also, explained in this API Reference - https://react-query.tanstack.com/docs/api#usequery
+
+When using dynamic routes with next/Link, use the 'as' prop when linking - https://nextjs.org/docs/api-reference/next/link#dynamic-routes

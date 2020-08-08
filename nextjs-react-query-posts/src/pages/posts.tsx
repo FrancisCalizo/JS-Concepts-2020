@@ -28,7 +28,7 @@ export default function Posts(props: Props) {
       <List>
         {posts?.map((post) => (
           <ListItem key={post.id}>
-            <Link href={`/post/${post.id}`}>
+            <Link href="/post/[id]" as={`/post/${post.id}`}>
               <a>{post.title}</a>
             </Link>
           </ListItem>
