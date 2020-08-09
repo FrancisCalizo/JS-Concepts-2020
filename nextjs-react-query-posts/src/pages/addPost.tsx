@@ -21,12 +21,10 @@ const addPost = async (newPost: AddPost) => {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      body: JSON.stringify(newPost),
     },
+    body: JSON.stringify(newPost),
   });
-
   const data = await res.json();
-  console.log(data);
   return data;
 };
 
@@ -42,6 +40,12 @@ const AddPost = () => {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.persist();
     setNewPost((oldState) => {
+      if (e.target.id === 'userId') {
+        return {
+          ...oldState,
+          [e.target.id]: Number(e.target.value),
+        };
+      }
       return {
         ...oldState,
         [e.target.id]: e.target.value,

@@ -601,19 +601,10 @@
       "body": "cupiditate quo est a modi nesciunt soluta\nipsa voluptas error itaque dicta in\nautem qui minus magnam et distinctio eum\naccusamus ratione error aut"
     },
     {
+      "title": "This should work title",
+      "body": "body",
+      "userId": 3,
       "id": 101
-    },
-    {
-      "id": 102
-    },
-    {
-      "id": 103
-    },
-    {
-      "id": 104
-    },
-    {
-      "id": 105
     }
   ]
 }
