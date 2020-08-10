@@ -7,7 +7,7 @@ import Layout from '../components/layout';
 interface AddPost {
   title: string;
   body: string;
-  userId: number | undefined;
+  userId: number;
 }
 
 const InputContainer = styled.div`
@@ -32,12 +32,19 @@ const AddPost = () => {
   const [newPost, setNewPost] = useState<AddPost>({
     title: '',
     body: '',
-    userId: undefined,
+    userId: 1,
   });
 
-  const [mutate, infoObj] = useMutation(addPost);
+  const [mutate] = useMutation(addPost, {
+    onSuccess: () => {
+      setNewPost({ title: '', body: '', userId: 1 });
+      queryCache.invalidateQueries('posts');
+    },
+  });
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     e.persist();
     setNewPost((oldState) => {
       if (e.target.id === 'userId') {
@@ -67,17 +74,27 @@ const AddPost = () => {
     <Layout title="Add Post">
       <h1>Add a post</h1>
       <form onSubmit={handleSubmit}>
-        <InputContainer onChange={handleChange}>
+        <InputContainer>
           <label htmlFor="title">Title</label>
-          <input type="text" id="title" />
+          <input
+            type="text"
+            id="title"
+            value={newPost.title}
+            onChange={handleChange}
+          />
         </InputContainer>
-        <InputContainer onChange={handleChange}>
+        <InputContainer>
           <label htmlFor="body">Body</label>
-          <textarea id="body" />
+          <textarea id="body" value={newPost.body} onChange={handleChange} />
         </InputContainer>
-        <InputContainer onChange={handleChange}>
+        <InputContainer>
           <label htmlFor="userId">User ID</label>
-          <input type="text" id="userId" />
+          <input
+            type="number"
+            id="userId"
+            value={newPost.userId}
+            onChange={handleChange}
+          />
         </InputContainer>
         <div>
           <button type="submit">Add Post</button>
