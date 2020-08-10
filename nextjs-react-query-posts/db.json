@@ -641,6 +641,18 @@
       "body": "106 body",
       "userId": 4,
       "id": 107
+    },
+    {
+      "title": "Example Title",
+      "body": "Examply Body",
+      "userId": 3,
+      "id": 108
+    },
+    {
+      "title": "This is some new enw",
+      "body": "This is a body new",
+      "userId": 5,
+      "id": 109
     }
   ]
 }

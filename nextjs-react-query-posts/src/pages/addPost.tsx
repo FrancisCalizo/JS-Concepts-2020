@@ -37,8 +37,11 @@ const AddPost = () => {
 
   const [mutate] = useMutation(addPost, {
     onSuccess: () => {
-      setNewPost({ title: '', body: '', userId: 1 });
       queryCache.invalidateQueries('posts');
+      setNewPost({ title: '', body: '', userId: 1 });
+    },
+    onError: () => {
+      console.log('There was an error');
     },
   });
 
