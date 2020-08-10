@@ -4,7 +4,7 @@ import { GetServerSideProps } from 'next';
 import { useQuery } from 'react-query';
 
 import Layout from '../../components/layout';
-import { Post } from '../../types';
+import { Post, EditPost } from '../../types';
 import UpdatePost from '../../components/UpdatePost';
 
 interface Props {
@@ -18,16 +18,36 @@ const getPost = async (_: string, obj: { id: number }) => {
 };
 
 const PostItem = (props: Props) => {
-  const [updatedPost, setUpdatedPost] = useState({ title: '', body: '' });
-  const router = useRouter();
-  const { data: post } = useQuery(['post', { id: props.post.id }], getPost, {
-    initialData: props.post,
+  const [updatedPost, setUpdatedPost] = useState<EditPost>({
+    title: '',
+    body: '',
   });
+  const router = useRouter();
+  const {
+    data: post,
+    status,
+  }: { data: Post | undefined; status: string } = useQuery(
+    ['post', { id: props.post.id }],
+    getPost,
+    {
+      initialData: props.post,
+      onSettled: () => {
+        console.log(status);
+      },
+      onSuccess: (data) => {
+        console.log(data);
+        setUpdatedPost({
+          title: data?.title,
+          body: data?.body,
+        });
+      },
+    }
+  );
 
   return (
-    <Layout title={post.title}>
-      <h1>{post.title}</h1>
-      <p>{post.body}</p>
+    <Layout title={post?.title}>
+      <h1>{post?.title}</h1>
+      <p>{post?.body}</p>
       <UpdatePost post={post} />
     </Layout>
   );

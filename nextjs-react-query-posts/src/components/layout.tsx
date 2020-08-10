@@ -6,7 +6,7 @@ import { ReactQueryDevtools } from 'react-query-devtools';
 
 interface LayoutProps {
   children: React.ReactNode;
-  title: string;
+  title: string | undefined;
 }
 
 const Nav = styled.nav`

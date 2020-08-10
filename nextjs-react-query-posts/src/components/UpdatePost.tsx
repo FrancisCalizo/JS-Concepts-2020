@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Post } from '../types';
 
 interface Props {
-  post: Post;
+  post: Post | undefined;
 }
 
 const TitleInput = styled.input`
@@ -17,7 +17,7 @@ const UpdatePost = ({ post }: Props) => {
       <div>
         <label htmlFor="title">
           <div>Title</div>
-          <TitleInput type="text" name="title" id="title" value={post.title} />
+          <TitleInput type="text" name="title" id="title" value={post?.title} />
         </label>
       </div>
       <div>
@@ -28,7 +28,7 @@ const UpdatePost = ({ post }: Props) => {
             id="body"
             cols={30}
             rows={10}
-            value={post.body}
+            value={post?.body}
           />
         </label>
       </div>
