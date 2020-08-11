@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useState, ChangeEvent } from 'react';
 import { GetServerSideProps } from 'next';
 import { useQuery } from 'react-query';
 
@@ -22,7 +21,7 @@ const PostItem = (props: Props) => {
     title: '',
     body: '',
   });
-  const router = useRouter();
+
   const {
     data: post,
     status,
@@ -31,11 +30,7 @@ const PostItem = (props: Props) => {
     getPost,
     {
       initialData: props.post,
-      onSettled: () => {
-        console.log(status);
-      },
       onSuccess: (data) => {
-        console.log(data);
         setUpdatedPost({
           title: data?.title,
           body: data?.body,
@@ -44,11 +39,23 @@ const PostItem = (props: Props) => {
     }
   );
 
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    console.log(e.target);
+    // setUpdatedPost((initialState) => {
+    //   return {
+    //     ...initialState,
+    //     [e.target.id]: e.target.value,
+    //   };
+    // });
+  };
+
   return (
     <Layout title={post?.title}>
       <h1>{post?.title}</h1>
       <p>{post?.body}</p>
-      <UpdatePost post={post} />
+      <UpdatePost post={post} handleChange={handleChange} />
     </Layout>
   );
 };
