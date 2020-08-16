@@ -1,7 +1,9 @@
 import React from 'react';
-import Todos from './components/Todos';
+import { ThemeProvider } from 'styled-components';
 
+import Todos from './components/Todos';
 import { TodoType } from './types';
+import Theme from './config';
 
 function App() {
   const [todos, setTodos] = React.useState<TodoType[]>([]);
@@ -18,10 +20,10 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <ThemeProvider theme={Theme}>
       <h1>Todos</h1>
       <Todos todos={todos} />
-    </div>
+    </ThemeProvider>
   );
 }
 
