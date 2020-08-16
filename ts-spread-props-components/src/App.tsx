@@ -4,7 +4,7 @@ import Todos from './components/Todos';
 import { TodoType } from './types';
 
 function App() {
-  const [todos, setTodos] = React.useState<TodoType[]>({} as TodoType[]);
+  const [todos, setTodos] = React.useState<TodoType[]>([]);
 
   React.useEffect(() => {
     async function getTodos() {

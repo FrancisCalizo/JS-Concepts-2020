@@ -6,10 +6,11 @@ interface Props {
 }
 
 const TodoItem: React.FC<Props> = ({ todos }) => {
-  console.log(todos);
   return (
     <>
-      <h2>Check the console</h2>
+      {todos?.map((todo) => (
+        <li key={todo.id}>{todo.title}</li>
+      ))}
     </>
   );
 };
